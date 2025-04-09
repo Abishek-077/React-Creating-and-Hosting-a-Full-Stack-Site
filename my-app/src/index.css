@@ -3,15 +3,13 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
 
-  /* Define custom properties for color scheme */
+  /* Base Theme Variables (Dark by Default) */
   --primary-color: #646cff;
   --hover-color: #535bf2;
   --background-light: #ffffff;
@@ -21,6 +19,30 @@
   --button-background: #1a1a1a;
   --button-hover: #646cff;
   --button-focus: #535bf2;
+
+  /* Active Colors (Will be overridden by media query) */
+  --background-color: var(--background-dark);
+  --text-color: var(--text-dark);
+}
+
+/* Light Mode Overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: var(--background-light);
+    --text-color: var(--text-light);
+  }
+}
+
+/* Body Styling */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Default Link Styling */
@@ -35,25 +57,13 @@ a:hover {
   color: var(--hover-color);
 }
 
-/* Body Styling */
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--background-dark);
-  color: var(--text-dark);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 /* Heading Styles */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
   margin: 0.5em 0;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--text-color);
   text-align: center;
   transition: color 0.3s ease;
 }
@@ -83,53 +93,19 @@ button:focus-visible {
   box-shadow: 0 0 10px var(--button-focus);
 }
 
-/* Light Mode Overrides */
+/* Light Mode Button Tweaks */
 @media (prefers-color-scheme: light) {
-  :root {
-    color: var(--text-light);
-    background-color: var(--background-light);
-  }
-
-  body {
-    background-color: var(--background-light);
-    color: var(--text-light);
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
   button {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
+    color: var(--text-light);
   }
 
   button:hover {
     background-color: #e1e1e1;
   }
-}
-
-/* Dark Mode Styling */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: var(--text-dark);
-    background-color: var(--background-dark);
-  }
-
-  body {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
-  }
 
   a:hover {
-    color: var(--hover-color);
-  }
-
-  button {
-    background-color: var(--button-background);
-  }
-
-  button:hover {
-    background-color: var(--button-hover);
+    color: #747bff;
   }
 }

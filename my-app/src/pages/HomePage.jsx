@@ -1,8 +1,5 @@
-export default function HomePage() {
+export default function Homepage() {
   return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the home page of our application.</p>
-    </div>
+    <h1>This is Home Page</h1>
   );
 }

@@ -4,11 +4,6 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 const app = express();
 let db; // Declare db
 
-const articleInfo = [
-    { name: 'learn-node', upvotes: 0, comment: [] },
-    { name: 'learn-react', upvotes: 0, comment: [] },
-    { name: 'mongodb', upvotes: 0, comment: [] },
-];
 
 app.use(express.json());
 

@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
+
+
 export default function Layout() {
-    return(
+    return (
         <>
-        <NavBar/>
-        <Outlet/>
-
+            <NavBar />
+            <Outlet />
         </>
-    )
 
+    );
 }
